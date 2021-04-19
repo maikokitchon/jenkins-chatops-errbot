@@ -41,4 +41,4 @@ class Jenkins(BotPlugin):
         # services.append({'id': container.id, 'name': service})
         # self['services'] = services
         # return Dos._services[service]['info']
-         return "This is just a sample function"
+        return "This is just a sample function"

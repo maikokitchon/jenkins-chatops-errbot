@@ -1,7 +1,4 @@
 from errbot import BotPlugin, botcmd, arg_botcmd, webhook
-import jenkins
-
-client = jenkins.from_env()
 
 
 class Jenkins(BotPlugin):

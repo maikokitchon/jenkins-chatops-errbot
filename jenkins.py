@@ -49,5 +49,5 @@ class Jenkins(BotPlugin):
         }
 
         response = requests.get('https://dummy.restapiexample.com/api/v1/employees', headers=headers)
-
-        return response.json()
+        print(response)
+        return response.text

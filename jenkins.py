@@ -1,5 +1,5 @@
 from errbot import BotPlugin, botcmd, arg_botcmd, webhook
-
+import requests
 
 class Jenkins(BotPlugin):
     """

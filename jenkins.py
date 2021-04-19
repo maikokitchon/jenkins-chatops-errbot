@@ -48,6 +48,6 @@ class Jenkins(BotPlugin):
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0',
         }
 
-        x = requests.get('https://dummy.restapiexample.com/api/v1/employees', headers=headers)
+        response = requests.get('https://dummy.restapiexample.com/api/v1/employees', headers=headers)
 
-        return x.text
+        return response

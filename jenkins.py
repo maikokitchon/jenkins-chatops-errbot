@@ -39,3 +39,11 @@ class Jenkins(BotPlugin):
         # self['services'] = services
         # return Dos._services[service]['info']
         return "This is just a sample function"
+    
+    @botcmd
+    def get_employees(self, message, service=None):
+        """This is just a sample plugin"""
+
+        x = requests.get('https://dummy.restapiexample.com/api/v1/employees')
+
+        return x.text

@@ -1,0 +1,10 @@
+
+[Core]
+name = jenkins
+module = jenkins
+
+[Documentation]
+description = jenkins
+
+[Python]
+version = 3

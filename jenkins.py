@@ -23,8 +23,8 @@ class Jenkins(BotPlugin):
         super(Jenkins, self).activate()
         self['services'] = []
 
-    @arg_botcmd('service', type=str)
-    def sample(self, message, service=None):
+    @botcmd
+    def sampleonly(self, message, service=None):
         """This is just a sample plugin"""
 
         # container_id = self.get_container_id(service)

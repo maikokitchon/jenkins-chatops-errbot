@@ -1,7 +1,7 @@
 from errbot import BotPlugin, botcmd, arg_botcmd, webhook
-import docker
+import jenkins
 
-client = docker.from_env()
+client = jenkins.from_env()
 
 
 class Jenkins(BotPlugin):

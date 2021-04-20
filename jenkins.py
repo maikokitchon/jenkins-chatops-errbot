@@ -41,13 +41,9 @@ class Jenkins(BotPlugin):
         return "This is just a sample function"
     
     @botcmd
-    def get_employees(self, message, service=None):
+    def jenkins_build(self, message, service=None):
         """This is just a sample plugin"""
 
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0',
-        }
-
-        response = requests.get('https://dummy.restapiexample.com/api/v1/employees', headers=headers)
+        response = requests.post('http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080/job/My%20Sample%20Project/build?token=8rEqg7vCBGvuFvgHQc7FjLfaaCa9CuuPMHzYCP', headers=headers)
         print(response)
-        return response.text
+        return 'Triggered a job named My Sample Project with response '.response.text

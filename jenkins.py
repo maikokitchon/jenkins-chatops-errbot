@@ -44,10 +44,7 @@ class Jenkins(BotPlugin):
     def jenkins_build(self, message, service=None):
         """This is just a sample plugin"""
 
-        if args:
-            frm = self.build_identifier(str(args).strip('"'))
-        else:
-            frm = msg.frm
+        frm = message.frm
         
         resp = "| key      | value\n"
         resp += "| -------- | --------\n"

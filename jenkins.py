@@ -30,14 +30,14 @@ class Jenkins(BotPlugin):
         # container_id = self.get_container_id(service)
         # if container_id:
         #     return f'Service {service} already running'
-        # container = client.containers.run(Dos._services[service]['image'],
+        # container = client.containers.run(Jenkins._services[service]['image'],
         #                                   detach=True,
         #                                   remove=True,
-        #                                   ports=Dos._services[service]['ports'])
+        #                                   ports=Jenkins._services[service]['ports'])
         # services = list(self['services'])
         # services.append({'id': container.id, 'name': service})
         # self['services'] = services
-        # return Dos._services[service]['info']
+        # return Jenkins._services[service]['info']
         return "This is just a sample function"
     
     @botcmd
@@ -55,3 +55,11 @@ class Jenkins(BotPlugin):
         response = requests.post(f"http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080/job/My%20Sample%20Project/build?token=8rEqg7vCBGvuFvgHQc7FjLfaaCa9CuuPMHzYCP&cause=This+was+started+by+{frm.person}")
         
         return resp
+
+    @botcmd
+    def jenkins_show_logs(self, message, service=None):
+        """This is just a sample plugin"""
+
+        response = requests.get(f"http://admin:1168c4dd9ddf99fc9de9eead120a675711@127.0.0.1:8080/job/My%20Sample%20Project/lastBuild/consoleText")
+        
+        return response.text

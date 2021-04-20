@@ -59,4 +59,4 @@ class Jenkins(BotPlugin):
 
         response = requests.get(f"{Jenkins._services['web']['url']}/job/My%20Sample%20Project/lastBuild/consoleText")
         
-        return "```".response.text
+        return "```"+response.text

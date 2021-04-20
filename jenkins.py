@@ -6,13 +6,10 @@ class Jenkins(BotPlugin):
     jenkins
     """
     _services = {
-        'web': {'image': 'nginx:latest',
-            'ports': {'80/tcp': '8090'},
-            'info': 'Web created at http://localhost:8090'
-        },
-        'jenkins': {'image': 'jenkins:latest',
-            'ports': {'8080/tcp': '8080', '5000/tcp': '5000'},
-            'info': 'Jenkins created at http://localhost:8080'
+        'web': {
+            'url': 'http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080',
+            'token': '8rEqg7vCBGvuFvgHQc7FjLfaaCa9CuuPMHzYCP',
+            'job_url': 'http://127.0.0.1:8080/job/My%20Sample%20Project/'
         },
     }
 
@@ -50,9 +47,9 @@ class Jenkins(BotPlugin):
         resp += "| -------- | --------\n"
         resp += f"| Triggered By | `{frm.person}`\n"
         resp += f"| Triggered Jenkins Job Name | My Sample Project\n"
-        resp += f"| Jenkins Job Url | http://127.0.0.1:8080/job/My%20Sample%20Project/\n"
+        resp += f"| Jenkins Job Url | {Jenkins._services['web']['job_url']}\n"
 
-        response = requests.post(f"http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080/job/My%20Sample%20Project/build?token=8rEqg7vCBGvuFvgHQc7FjLfaaCa9CuuPMHzYCP&cause=This+was+started+by+{frm.person}")
+        response = requests.post(f"{Jenkins._services['web']['url']}/job/My%20Sample%20Project/build?token={Jenkins._services['web']['token']}&cause=This+was+started+by+{frm.person}")
         
         return resp
 
@@ -60,6 +57,6 @@ class Jenkins(BotPlugin):
     def jenkins_show_logs(self, message, service=None):
         """This is just a sample plugin"""
 
-        response = requests.get(f"http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080/job/My%20Sample%20Project/lastBuild/consoleText")
+        response = requests.get(f"{Jenkins._services['web']['url']}/job/My%20Sample%20Project/lastBuild/consoleText")
         
-        return response.text
+        return "```".response.text

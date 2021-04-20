@@ -44,6 +44,17 @@ class Jenkins(BotPlugin):
     def jenkins_build(self, message, service=None):
         """This is just a sample plugin"""
 
+        if args:
+            frm = self.build_identifier(str(args).strip('"'))
+        else:
+            frm = msg.frm
+        
+        resp = "| key      | value\n"
+        resp += "| -------- | --------\n"
+        resp += f"| From | `{frm.person}`\n"
+        resp += f"| Jenkins Job | My Sample Project\n"
+        resp += f"| Jenkins Job Url | http://127.0.0.1:8080/job/My%20Sample%20Project/\n"
+
         response = requests.post('http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080/job/My%20Sample%20Project/build?token=8rEqg7vCBGvuFvgHQc7FjLfaaCa9CuuPMHzYCP')
-        print(response)
-        return "Triggered a job named My Sample Project"
+        
+        return resp

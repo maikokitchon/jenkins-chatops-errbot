@@ -46,4 +46,4 @@ class Jenkins(BotPlugin):
 
         response = requests.post('http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080/job/My%20Sample%20Project/build?token=8rEqg7vCBGvuFvgHQc7FjLfaaCa9CuuPMHzYCP')
         print(response)
-        return 'Triggered a job named My Sample Project with response '.response.text
+        return 'Triggered a job named My Sample Project with response '.response

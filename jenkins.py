@@ -60,6 +60,6 @@ class Jenkins(BotPlugin):
     def jenkins_show_logs(self, message, service=None):
         """This is just a sample plugin"""
 
-        response = requests.get(f"http://admin:1168c4dd9ddf99fc9de9eead120a675711@127.0.0.1:8080/job/My%20Sample%20Project/lastBuild/consoleText")
+        response = requests.get(f"http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080/job/My%20Sample%20Project/lastBuild/consoleText")
         
         return response.text

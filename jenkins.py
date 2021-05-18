@@ -7,7 +7,7 @@ class Jenkins(BotPlugin):
     """
     _services = {
         'web': {
-            'url': 'http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.3:8080',
+            'url': 'http://admin:1168c4dd9ddf99fc9de9eead120a675711@172.17.0.2:8080',
             'token': '8rEqg7vCBGvuFvgHQc7FjLfaaCa9CuuPMHzYCP',
             'job_url': 'http://127.0.0.1:8080/job/My%20Sample%20Project/'
         },

@@ -4,7 +4,7 @@ name = jenkins
 module = jenkins
 
 [Documentation]
-description = jenkins
+description = Management commands related to Jenkins
 
 [Python]
 version = 3
